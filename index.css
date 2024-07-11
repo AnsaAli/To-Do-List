@@ -89,3 +89,6 @@ input {
 .remove:hover {
     background-color: rgb(148, 12, 5);
 }
+.message{
+    color: red;
+}

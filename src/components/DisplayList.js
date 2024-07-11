@@ -7,7 +7,9 @@ const DisplayList = () => {
     const [activity, setActivity] = useState('');
     const [listData, setListData] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
+    const [doneActivities, setDoneActivities] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(null);
+    const [message, setMessage] = useState('');
 
     const addActivity = () => {
         //setListData([...listData,activity]); //will get first empty array, then 
@@ -16,6 +18,10 @@ const DisplayList = () => {
         if(activity.trim() === ''){
             return 
         }
+        if (listData.includes(activity)) {
+            setMessage('This activity already exists.');
+            return;
+          }
 
         if (isEditing) {
             const updatedActivity = listData.map((newActivity, index) =>
@@ -30,15 +36,17 @@ const DisplayList = () => {
                 const updatedList = [...listNewData, activity]
                 console.log(updatedList);
                 return updatedList;
-            })
+            });
+            setDoneActivities((doneNewData) => [...doneNewData, false]);
         }
 
         setActivity('');
+        setMessage('')
     }
 
 
     const markAsDone = (index) => {
-
+        setDoneActivities((doneActivity)=> doneActivity.map((done,i)=> (i === index ? !done : done)))
     }
 
     const editActivity = (index) => {
@@ -67,14 +75,16 @@ const DisplayList = () => {
                     onClick={addActivity}>
                         {isEditing ? "Update" : "Add"}
                     </button>
-
+                    {message && <p className="message">{message}</p>}
                 {/* display activities */}
                 {listData.length > 0 && listData.map((activity, index) => {
                     return (
                         <div className="list" key={index}>
                             <p className="list-activities"> {activity}  </p>
                             <div className="btn-list">
-                                <button className="done" onClick={()=> markAsDone(index)}>Mark</button>
+                                <button className="done" onClick={()=> markAsDone(index)}>
+                                    {doneActivities[index] ? "Done": "Mark"}
+                                </button>
                                 <button className="edit" onClick={()=> editActivity(index)}>Edit</button>
                                 <button className="remove" onClick={()=>removeActivity(index)}>Remove</button>
                             </div>
