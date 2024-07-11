@@ -13,6 +13,10 @@ const DisplayList = () => {
         //setListData([...listData,activity]); //will get first empty array, then 
         //added data, to overcome need to do it another way
         // console.log(listData)
+        if(activity.trim() === ''){
+            return 
+        }
+
         if (isEditing) {
             const updatedActivity = listData.map((newActivity, index) =>
                 index === currentIndex ? activity : newActivity
@@ -44,8 +48,11 @@ const DisplayList = () => {
     }
 
     const removeActivity = (index) => {
-        const updatedActivities = listData.filter((_,i)=> i != index);
-        setListData(updatedActivities);
+        if(window.confirm('Are you sure you want to remove this activity?')){
+            const updatedActivities = listData.filter((_,i)=> i != index);
+            setListData(updatedActivities);
+        }
+        
     }
 
     return (
@@ -67,7 +74,7 @@ const DisplayList = () => {
                         <div className="list" key={index}>
                             <p className="list-activities"> {activity}  </p>
                             <div className="btn-list">
-                                <button className="done" onClick={()=> markAsDone(index)}>Done</button>
+                                <button className="done" onClick={()=> markAsDone(index)}>Mark</button>
                                 <button className="edit" onClick={()=> editActivity(index)}>Edit</button>
                                 <button className="remove" onClick={()=>removeActivity(index)}>Remove</button>
                             </div>
