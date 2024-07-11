@@ -1,27 +1,29 @@
-
-.container{
+.container {
     height: auto;
     width: 50%;
     margin: auto;
     margin-top: 50px;
     background-color: black;
-   color: aliceblue;
-   padding: 20px;
-   border-radius: 10px;
-   text-align: center;
-  
- 
+    color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+
+
 }
-.input-data{
+
+.input-data {
     margin-top: 50px;
 }
-input{
+
+input {
     padding: 10px;
     width: 30%;
     border-radius: 5px;
     border: none;
 }
-.btn{
+
+.btn {
     padding: 10px;
     background-color: white;
     font-size: 14px;
@@ -30,7 +32,52 @@ input{
     border: none;
     margin-left: 5px;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: rgb(187, 236, 205);
     cursor: pointer;
+}
+
+.list {
+    display: flex;
+}
+
+.list-activities {
+    background-color: rgb(48, 206, 145);
+    width: 80%;
+    border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+.btn-list {
+    display: flex;
+    text-align: right;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.done,
+.edit,
+.remove {
+    margin-left: 4px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 4px;
+    color: white;
+}
+
+.done:hover {
+    background-color: green;
+}
+
+.edit:hover {
+    background-color: rgb(207, 181, 10);
+}
+
+.remove:hover {
+    background-color: rgb(255, 17, 0);
 }
