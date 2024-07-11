@@ -1,0 +1,36 @@
+
+.container{
+    height: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: black;
+   color: aliceblue;
+   padding: 20px;
+   border-radius: 10px;
+   text-align: center;
+  
+ 
+}
+.input-data{
+    margin-top: 50px;
+}
+input{
+    padding: 10px;
+    width: 30%;
+    border-radius: 5px;
+    border: none;
+}
+.btn{
+    padding: 10px;
+    background-color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    margin-left: 5px;
+}
+.btn:hover{
+    background-color: rgb(187, 236, 205);
+    cursor: pointer;
+}
